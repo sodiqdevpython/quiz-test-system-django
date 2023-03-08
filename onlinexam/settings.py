@@ -27,7 +27,7 @@ SECRET_KEY = '@k0#p3kidu)yaaa3u1hplxz)f@^6xiy384*(+n@@s5x#1bx@m5'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['165.232.73.180']
 
 
 # Application definition
@@ -83,8 +83,12 @@ WSGI_APPLICATION = 'onlinexam.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'namuna',
+        'USER': 'sodiq',
+        'PASSWORD': 'sodiq',
+        'HOST': 'localhost',
+        'POST': '',
     }
 }
 
@@ -121,11 +125,14 @@ USE_L10N = True
 
 USE_TZ = True
 
+import os
+
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS=[
 STATIC_DIR,
  ]
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
 LOGIN_REDIRECT_URL='/afterlogin'
 LOGOUT_REDIRECT_URL = '/'
