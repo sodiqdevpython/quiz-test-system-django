@@ -1,10 +1,12 @@
 from django.urls import path,include
 from django.contrib import admin
+from django.conf import settings
+from django.conf.urls.static import static
 from exam import views
 from django.contrib.auth.views import LogoutView,LoginView
 urlpatterns = [
    
-    path('admin/', admin.site.urls),
+    path('admin81/', admin.site.urls),
     path('teacher/',include('teacher.urls')),
     path('student/',include('student.urls')),
     
@@ -49,3 +51,4 @@ urlpatterns = [
 
     path('result-pupil/<int:pk>', views.view_result_pupils, name='view-result')
 ]
+urlpatterns+=static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

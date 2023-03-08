@@ -21,13 +21,14 @@
 <form method="POST" autocomplete="off" style="margin:100px;margin-top: 0px;">
     {%csrf_token%}
     <div class="form-group">
-        <label for="question">Ushbu savol qaysi musobaqa uchunligini tanlang</label>
+        <label for="question">1-QADAM <br> Ushbu savol qaysi musobaqa uchunligini tanlang</label>
       {% render_field questionForm.courseID|attr:'required:true' class="form-control"  %}
         <br>
 
-      <label for="question">Savolni kiriting</label>
+      <label for="question">2-QADAM <br> Savolni kiriting</label>
       {% render_field questionForm.question|attr:'required:true' class="form-control" placeholder="masalan: 1-jahon urushi qachon boshlangan ?" %}
         <br>
+      
       <label for="question_number">Ushbu savolga o'quvchi to'g'ri javob bersa necha ball berilsin <small style="color: red;">(agar test qiyin bo'lsa ko'proq oson bo'lsa kamroq ball berilsa yaxshi bo'lardi)</small></label>
       {% render_field questionForm.marks|attr:'required:true' class="form-control" placeholder="masalan: 2" %}
         <br>

@@ -18,9 +18,16 @@ from django.contrib.auth.models import User
 
 
 def home_view(request):
+    dict={
+    'total_student':SMODEL.Student.objects.all().count(),
+    'total_teacher':TMODEL.Teacher.objects.all().filter(status=True).count(),
+    'total_course':models.Course.objects.all().count(),
+    'total_question':models.Question.objects.all().count(),
+    'total_users': User.objects.all().count()
+    }
     if request.user.is_authenticated:
         return HttpResponseRedirect('afterlogin')  
-    return render(request,'exam/index.html')
+    return render(request,'exam/index.html',context=dict)
 
 
 def is_teacher(user):
